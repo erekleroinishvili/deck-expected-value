@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Expected Value</title>
+    <style>
+        .panel {
+            margin-block-end: 16px;
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            gap: 16px;
+            justify-items: center;
+            align-items: center;
+            .display {
+                display: grid;
+                grid-auto-flow: column;
+                gap: 16px;
+                align-items: center;
+            }
+        }
+        #expected-value {
+            display: inline-block;
+            font-size: 64px;
+            color: steelblue;
+            min-width: 112px;
+        }
+        #card-table {
+            display: grid;
+            grid-template-columns: repeat(13, minmax(0, 1fr));
+            gap: 16px 8px;
+        }
+        .card-face {
+            max-width: 100%;
+            &:not(.used) {
+                cursor: pointer;
+            }
+            &.used {
+                opacity: .1;
+            }
+        }
+    </style>
+    <script src="cards.js"></script>
+</head>
+<body>
+    <div class="panel">
+        <button id="reset-button">Reset ⟳</button>
+        <div class="display">Expected Value: <span id="expected-value"></span></div>
+    </div>
+
+    <div id="card-table"></div>
+</body>
+</html>
